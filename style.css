@@ -1,0 +1,412 @@
+/* ---------- General Styles ---------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f7fb;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    background: linear-gradient(90deg, #c31432 0%, #240b36 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.navbar h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.hamburger {
+    font-size: 28px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* ---------- Sidebar ---------- */
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(90deg, #c31432 0%, #240b36 100%);
+    color: white;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+#sidebar.active { left: 0; }
+#sidebar ul { list-style: none; padding: 0; margin: 0; }
+#sidebar ul li { margin: 0; }
+.sidebar-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.sidebar-btn:hover { background: rgba(255,255,255,0.1); }
+
+/* ---------- Overlay ---------- */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+    transition: width 0.3s;
+    z-index: 999;
+}
+#overlay.active { width: 100vw; }
+
+/* ---------- Footer ---------- */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 45px;
+    background: linear-gradient(90deg, #c31432 0%, #240b36 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    z-index: 999;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+}
+
+/* ---------- Pages ---------- */
+.page {
+    display: none;
+    min-height: 100vh;
+    width: 100vw;
+    color: #222;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 70px;
+    position: relative;
+    transition: background 0.4s;
+    box-sizing: border-box;
+}
+
+/* ---------- Home Page ---------- */
+#home {
+    background: linear-gradient(rgba(200,0,40,0.38), rgba(36,11,54,0.11)),
+        url('assets/home-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    display: block;
+}
+#home h1 {
+    font-size: 2.3em;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 32px;
+    margin-bottom: 18px;
+    letter-spacing: 1.1px;
+    text-shadow: 0 2px 9px rgba(36,11,54,0.15);
+}
+#home p {
+    font-size: 1.18em;
+    color: #fff;
+    margin-bottom: 25px;
+    font-weight: 400;
+    text-shadow: 0 2px 6px rgba(36,11,54,0.09);
+}
+#home .btn {
+    margin: 22px auto 0 auto;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #c31432 0%, #240b36 100%);
+    color: white;
+    border-radius: 25px;
+    padding: 13px 38px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+#home .btn:hover {
+    background: #fff;
+    color: #c31432;
+    border: 2px solid #c31432;
+}
+
+
+/* ---------- Login / Register / Upload Forms ---------- */
+#login, #register, #upload, #forgot, #verify, #reset, #editdon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgba(255,255,255,0.97), rgba(220,40,40,0.10)),
+                url('assets/upload-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 60px;
+}
+.form-box {
+    background: rgba(255,255,255,0.97);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(220,40,40,0.09);
+    padding: 30px 24px;
+    margin-top: 30px;
+    text-align: left;
+    width: 100%;
+    max-width: 420px;
+}
+.form-box label {
+    display: block;
+    margin: 8px 0 4px 0;
+    font-weight: 500;
+    color: #c31432;
+}
+.form-box input[type="text"], 
+.form-box input[type="password"], 
+.form-box input[type="number"], 
+.form-box select {
+    width: 95%;
+    padding: 12px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    margin-bottom: 14px;
+    font-size: 16px;
+    background: #f5f5f9;
+}
+.form-box button {
+    background: linear-gradient(90deg, #c31432 0%, #240b36 100%);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.form-box button:hover {
+    background: #fff;
+    color: #c31432;
+    border: 2px solid #c31432;
+}
+
+
+/* ---------- Dashboard / View Page ---------- */
+#dashboard, #view {
+      background: linear-gradient(rgba(255,255,255,0.94),rgba(220,40,40,0.10));
+      color: #222; width: 100vw; min-height: 100vh;
+    }
+    .dashboard-cards {
+      display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 25px;
+      gap: 30px;
+    }
+    .dashboard-card {
+      background: linear-gradient(120deg, #ffe6e6 60%, #fffafa 100%);
+      border-radius: 15px; box-shadow: 0 4px 16px rgba(220,40,40,0.11);
+      padding: 25px 35px; min-width: 180px; text-align: left;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; align-items: center; gap: 18px;
+    }
+    .dashboard-card:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 8px 24px rgba(220,40,40,0.15);
+    }
+    .dashboard-card .material-icons { font-size: 36px; color: #c31432; }
+    .dashboard-card .count { font-size: 28px; font-weight: bold; color: #c31432; }
+    .dashboard-card .label { font-size: 16px; color: #333; }
+
+    .btn {
+      background: linear-gradient(90deg, #c31432 0%, #240b36 100%);
+      color: white; padding: 13px 30px; border: none; border-radius: 25px;
+      font-size: 18px; cursor: pointer; margin: 10px; transition: 0.3s;
+      font-weight: 500; box-shadow: 0 2px 8px rgba(220,40,40,0.10);
+    }
+    .btn:hover { background: #fff; color: #c31432; border: 2px solid #c31432; }
+
+    .data-box {
+      background: #fff;
+      color: #333;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(220,40,40,0.09);
+      padding: 18px;
+      font-size: 16px;
+      text-align: left;
+      border-left: 8px solid #c31432;
+      cursor: pointer;
+      width: 95%;
+      margin: 10px auto;
+      position: relative;
+      transition: box-shadow 0.2s, background 0.2s, transform 0.18s;
+    }
+
+    @media (max-width: 900px) {
+      .dashboard-cards { flex-direction: column; gap: 18px; }
+      .form-box { padding: 14px 2vw; min-width: 96vw; max-width: 98vw; }
+      .data-box { width: 97vw; }
+      .navbar h2 { font-size: 16px; }
+    }
+    @media (max-width: 600px) { .data-box { width: 99vw; } }
+     .data-box {
+    background: #fff;
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(220,40,40,0.09);
+    padding: 12px 20px;
+    font-size: 16px;
+    text-align: center;
+    border-left: 8px solid #c31432;
+    cursor: pointer;
+    width: 95%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+
+  .data-box strong {
+    color: #c31432;
+  }
+
+  .data-box:hover {
+    background: #ffe6e6;   /* Slight pink shade on hover */
+    transform: translateY(-3px) scale(1.03);  /* Slight lift effect */
+    box-shadow: 0 6px 20px rgba(220,40,40,0.2);
+  }
+
+/* Donor / Data List */
+#donorList, #dataList {
+
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.data-box, .donor-box {
+    width: 95%;
+    background: #fff;
+    padding: 18px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(220,40,40,0.09);
+    margin: 10px auto;
+    font-size: 16px;
+    text-align: left;
+    border-left: 8px solid #c31432;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.data-box:hover, .donor-box:hover {
+    background-color: #ffe6e6;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(220,40,40,0.2);
+}
+
+/* Precautions & Blood Banks */
+#view .precautions-list, .bloodbanks-list {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff0f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(220,40,40,0.1);
+}
+#view .precautions-list ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+.bloodbanks-list table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+}
+.bloodbanks-list th, .bloodbanks-list td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+.bloodbanks-list th {
+    background: #c31432;
+    color: #fff;
+}
+.bloodbanks-list tr:hover {
+    background: rgba(220,40,40,0.08);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .dashboard-cards { flex-direction: column; gap: 18px; }
+    .form-box { width: 90%; padding: 20px; }
+    .data-box { width: 97%; }
+    .navbar h2 { font-size: 16px; }
+}
+@media (max-width: 600px) {
+    .data-box { width: 99%; }
+}
+/* ---------- Donor Boxes ---------- */
+.donor-box {
+    position: relative; /* Needed for absolute positioning of edit button */
+    background: #fff;
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(220,40,40,0.09);
+    padding: 18px;
+    font-size: 16px;
+    text-align: left;
+    border-left: 8px solid #c31432;
+    cursor: pointer;
+    width: 95%;
+    margin: 10px auto;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.donor-box:hover {
+    background-color: #ffe6e6;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(220,40,40,0.2);
+}
+
+/* ---------- Edit Button ---------- */
+.edit-btn {
+text-align: right;
+
+border: none;
+padding: 5px 12px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 14px;
+}
+
+/* Show button on hover */
+.donor-box:hover .edit-btn {
+    opacity: 1;
+}
+
